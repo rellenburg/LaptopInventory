@@ -749,16 +749,64 @@ select {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
+.visible {
+  visibility: visible;
+}
+
+.static {
+  position: static;
+}
+
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
+}
+
+.relative {
+  position: relative;
 }
 
 .inset-0 {
   inset: 0px;
 }
 
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.table {
+  display: table;
+}
+
+.contents {
+  display: contents;
+}
+
+.hidden {
+  display: none;
+}
+
+.resize {
+  resize: both;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .bg-white {
@@ -768,6 +816,29 @@ select {
 
 .p-0 {
   padding: 0px;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-pink-700 {
+  --tw-text-opacity: 1;
+  color: rgb(190 24 93 / var(--tw-text-opacity, 1));
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 html {
@@ -931,4 +1002,85 @@ dialog.prompt article > footer {
 }
 
 @media (min-width: 1280px) {
+}
+
+/* UI Dimmer */
+
+.UIDimmer {
+  visibility: hidden;
+  position: absolute;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  background: rgba(255,255,255,.85);
+  opacity: 0;
+  line-height: 1;
+  transition: opacity .25s ease-in;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  will-change: opacity;
+  z-index: 1000;
+}
+
+.UIDimmer.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.UIDimmer > .message {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: 33px;
+  text-align: center;
+  width: 100%;
+}
+
+.UIDimmer > .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 0 0 -25px;
+  text-align: center;
+  z-index: 1000;
+  transform: translateX(-50%)translateY(-50%);
+}
+
+.UIDimmer > .loader:before {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 500rem;
+  border: 0.2em solid rgba(0, 0, 0, 0.1);
+}
+
+.UIDimmer > .loader:after {
+  position: absolute;
+  content: '';
+  top: 0%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  animation: loader 0.6s linear;
+  animation-iteration-count: infinite;
+  border-radius: 500rem;
+  border-style: solid;
+  border-width: 0.2em;
+  box-shadow: 0px 0px 0px 1px transparent;
+  border-color: #54c8ff #54c8ff #E4E4E4 #E4E4E4;
+}
+
+@keyframes loader {
+  100% {
+    transform: rotate(360deg);
+  }
 }

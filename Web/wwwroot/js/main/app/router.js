@@ -21,7 +21,7 @@
         });
         //loads the item component and passes the item parameter
         // to the component
-        router.add('inventory/:inventoryId', function (r) {
+        router.add('inventory/:assetTag', function (r) {
             self.currentRoute.page('inventoryItem');
             self.currentRoute.params = r.params;
         });

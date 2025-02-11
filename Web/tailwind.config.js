@@ -4,7 +4,7 @@ module.exports = {
     darkMode: 'selector',
     content: [
         "./Views/**/*.cshtml",
-        "./js/**/*.{html,js}"
+        "./wwwroot/**/*.{html,js}"
     ],
     plugins: [
         require('@tailwindcss/forms')
