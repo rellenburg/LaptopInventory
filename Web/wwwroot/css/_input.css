@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html {
+    font-size: 13px;
+}
+html, body {
+    height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+}
+svg {
+    pointer-events: none;
+}
+section {
+    @apply bg-gray-100 p-4 rounded-md my-4;
+}
+label, fieldset legend {
+    display: block;
+    margin-bottom: 5px;
+    @apply text-sm font-medium;
+}
+hgroup {
+    @apply mb-4;
+}
+hgroup > * {
+    @apply my-0;
+}
+/*Dialog*/
+dialog {
+    display: flex;
+    z-index: 999;
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    min-width: 100%;
+    height: inherit;
+    min-height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(var(--dialog-bg), .5);
+    color: var(--pico-color);
+    overflow-y: auto;
+}
+dialog:not([open]), dialog[open=false] {
+    display: none;
+}
+dialog > article {
+    box-shadow: 0 9px 15px -4px rgba(0, 0, 0, .25), 0 2px 5px -5px rgba(0, 0, 0, .15);
+    margin:  auto;
+    max-height: unset;
+}
+dialog.prompt article {
+    width: 350px;
+    padding: 20px 25px 0;
+    overflow: visible;
+}
+dialog.prompt.lg article {
+    width: 500px;
+}
+dialog.prompt.xl article {
+    width: 700px;
+}
+dialog article .body {
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 15px;
+    padding: 10px 0px 20px;
+}
+dialog.prompt article > footer {
+    padding: 15px 25px;
+    margin: 0 -25px;
+    border-top: 1px solid rgba(var(--inverse-border));
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+    background-color: rgba(var(--app-background));
+    text-align: right;
+}
+
+
+/*ANIMATIONS*/
+.fadeOut {
+    animation: fade-out ease-out 1000ms forwards;
+}
+.fadeOutFast {
+    animation: fade-out ease-out 500ms forwards;
+}
+.fadeOut100 {
+    animation: fade-out ease-out 100ms forwards;
+}
+.fadeIn400 {
+    animation: fade-in ease-out 400ms forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }     
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }     
+    to {
+        opacity: 0;
+    }
+}
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
+}  
+
+/*MEDIA QUERIES*/
+@media (max-width: 1024px) {
+}
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 1024px) {
+}
+@media (min-width: 1280px) {
+}

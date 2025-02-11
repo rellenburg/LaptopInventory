@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>IT Inventory</title>
+    <link rel="stylesheet" href="~/fonts/inter/inter.css">
+    <link rel="stylesheet" href="~/css/output.css?@ViewBag.version" />
+    <script src="~/js/main/app/require.config.js?@ViewBag.version"></script>
+    <script src="~/js/require.js" data-main="/js/main/app/startup.js"></script>
+</head>
+<body class="text-color">
+    <div class="application absolute inset-0 bg-white" data-bind="transitionComponent: { name: router.currentRoute.page, params: { router: router, root: root } }"></div>
+
+    <dialog id="confirmModal" class="prompt lg text-color rounded-md p-0 open:animate-fade-in">
+        <article class="bg-background">
+            <div class="body">
+                <h4 data-bind="text: root.confirmModal.title"></h4>
+                <div data-bind="html: root.confirmModal.message"></div>
+            </div>
+            <footer>
+                <button class="bg-secondary-bg text-secondary-text hover:bg-secondary-bg/80" data-bind="text: root.confirmModal.cancel, click: root.confirmModal.hide">No</button>
+                <button class="bg-primary-bg text-secondary-text hover:bg-primary-bg/80" data-bind="text: root.confirmModal.ok, click: root.confirmModal.okCallback">Yes</button>
+            </footer>
+        </article>
+    </dialog>
+    <dialog id="alertModal" class="prompt lg text-color rounded-md p-0 open:animate-fade-in">
+        <article class="bg-background">
+            <div class="body">
+                <h4 data-bind="text: root.alertModal.title"></h4>
+                <p data-bind="text: root.alertModal.message"></p>
+            </div>
+            <footer>
+                <button class="bg-primary-bg text-secondary-text hover:bg-primary-bg/80" data-bind="text: root.alertModal.close, click: root.alertModal.hide">Okay</button>
+            </footer>
+        </article>
+    </dialog>
+    <div class="UIDimmer" data-bind="css: { show: root.isWaiting }">
+        <div class="loader"></div>
+        <div class="message" data-bind="html: root.waitMessage"></div>
+    </div>
+</body>
+</html>
